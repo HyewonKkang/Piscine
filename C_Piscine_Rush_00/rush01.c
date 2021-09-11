@@ -5,10 +5,10 @@ void	ft_putchar(char c);
 void	rush(int a, int b)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
-	while (i <= b) 
+	while (i <= b)
 	{
 		j = 1;
 		while (j <= a)
