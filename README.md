@@ -1,12 +1,12 @@
 # Piscine
 | No |   Project  | Language | Status |   Duration  |
 |:--:|:----------:|:--------:|:------:|:-----------:|
-| 01 | Shell 00   |   Shell  |    ✔️   |       1 day |
-| 02 | Shell 01   |   Shell  |    ✏️   | about 1 day |
-| 03 | Exam 00    |     C    |    ❌   |           - |
-| 04 | Rush 00    |     C    |    ❌   |           - |
+| 01 | Shell 00   |   Shell  |    ✔️   |      2 days |
+| 02 | Shell 01   |   Shell  |    ✔️   | about 1 day |
+| 03 | Exam 00    |     C    |    ✔️   |     3 hours |
+| 04 | Rush 00    |     C    |    ✔️   |     2 hours |
 | 05 | C 00       |     C    |    ❌   |           - |
-| 06 | C 01       |     C    |    ❌   |           - |
+| 06 | C 01       |     C    |    ✔   |     3 hours |
 | 07 | Exam 01    |     C    |    ❌   |           - |
 | 08 | Rush 01    |     C    |    ❌   |           - |
 | 09 | C 02       |     C    |    ❌   |           - |
