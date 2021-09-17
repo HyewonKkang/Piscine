@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/13 15:35:16 by hykang            #+#    #+#             */
+/*   Updated: 2021/09/13 15:35:47 by hykang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_ultimate_div_mod(int *a, int *b)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-    int d;
-    int m;
+	int	d;
+	int	m;
 
-    d = *a / *b;
-    m = *a % *b;
-
-    *a = d;
-    *b = m;
+	d = *a / *b;
+	m = *a % *b;
+	*a = d;
+	*b = m;
 }
