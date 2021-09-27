@@ -1,76 +1,78 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hykang <hykang@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 21:41:51 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/25 10:01:11 by hykang           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-int	is_op(char c)
+int is_op(char c)
 {
-	if (c == '+' || c == '-')
-		return (1);
-	return (0);
+    if (c == '+' || c == '-')
+        return (1);
+    return (0);
 }
 
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
 }
 
-int	is_base_correct(char *base)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (base[i])
-	{
-		if (is_op(base[i]))
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (i != j && base[i] == base[j++])
-				return (0);
-		}
-		i++;
-	}
-	if (i < 2)
-		return (0);
-	return (1);
+	write(1, &c, 1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int is_base_correct(char *base)
 {
-	unsigned int	radix_len;
-	unsigned int	nb;
+    int i;
+    int j;
 
-	nb = (unsigned int)nbr;
+    i = 0;
+
+    while (base[i])
+    {
+        if (is_op(base[i]))
+            return (0);
+        j = i + 1;
+        while (base[j])
+        {
+            if (i != j && base[i] == base[j])
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    if (i < 2)
+        return (0);
+    return (1);
+}
+
+void	ft_putnbr(int nb, int radix_len, char *radix)
+{
 	if (nb < 0)
 	{
-		write(1, "-", 1);
-		nb = (unsigned int)(-1 * nbr);
+		nb *= -1;
+		ft_putchar('-');
 	}
-	if (!is_base_correct(base))
-		return ;
-	radix_len = ft_strlen(base);
-	if (nb >= radix_len)
+	if (nb < radix_len)
 	{
-		ft_putnbr_base(nb / radix_len, base);
-		ft_putnbr_base(nb % radix_len, base);
+		ft_putchar(radix[nb % radix_len]);
+		return ;
 	}
 	else
-		write(1, &base[nb], 1);
+		ft_putnbr(nb / radix_len, radix_len, radix);
+	ft_putnbr(nb % radix_len, radix_len, radix);
+}
+
+
+void    ft_putnbr_base(int nbr, char *base)
+{
+    unsigned int radix_len;
+    unsigned int nb;
+
+    nb = nbr;
+    if (!is_base_correct(base))
+        return ;
+    radix_len = ft_strlen(base);
+    ft_putnbr(nb, radix_len, base);
 }
