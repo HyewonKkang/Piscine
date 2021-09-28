@@ -35,7 +35,7 @@ char	*malloc_str(int size, char **strs, char *sep)
 		len += ft_strlen(strs[i]);
 		i++;
 	}
-	arr = (char *)malloc(sizeof(char) * len);
+	arr = (char *)malloc(sizeof(char) * (len + 1));
 	return (arr);
 }
 
