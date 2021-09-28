@@ -47,32 +47,26 @@ int is_base_correct(char *base)
     return (1);
 }
 
-void	ft_putnbr(int nb, int radix_len, char *radix)
-{
-	if (nb < 0)
-	{
-		nb *= -1;
-		ft_putchar('-');
-	}
-	if (nb < radix_len)
-	{
-		ft_putchar(radix[nb % radix_len]);
-		return ;
-	}
-	else
-		ft_putnbr(nb / radix_len, radix_len, radix);
-	ft_putnbr(nb % radix_len, radix_len, radix);
-}
-
-
 void    ft_putnbr_base(int nbr, char *base)
 {
     unsigned int radix_len;
     unsigned int nb;
 
-    nb = nbr;
     if (!is_base_correct(base))
         return ;
     radix_len = ft_strlen(base);
-    ft_putnbr(nb, radix_len, base);
+    if (nbr < 0)
+	{
+		ft_putchar('-');
+		nb = nbr * -1;
+	}
+	else
+		nb = nbr;
+	if (nb >= radix_len)
+	{
+		ft_putnbr_base(nb / radix_len, base);
+		ft_putchar(base[nb % radix_len]);
+	}
+	else
+		ft_putchar(base[nb % radix_len]);
 }
