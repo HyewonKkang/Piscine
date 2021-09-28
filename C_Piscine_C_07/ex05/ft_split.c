@@ -6,7 +6,7 @@
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:57:18 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/27 17:59:40 by hykang           ###   ########.fr       */
+/*   Updated: 2021/09/28 18:07:37 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,33 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	is_sep(char *str, char *charset)
+int	is_sep(char c, char *charset)
 {
 	int	idx;
 
 	idx = 0;
 	while (charset[idx])
 	{
-		if (! *str)
-			return (0);
-		if (*str++ != charset[idx])
-			return (0);
+		if (c == charset[idx])
+			return (1);
 		idx++;
 	}
-	return (1);
+	return (0);
 }
 
 int	count_words(char *str, char *charset)
 {
 	int	cnt;
-	int	i;
 
 	cnt = 0;
 	while (*str)
 	{
-		while (*str && is_sep(str, charset))
-		{
-			i = 0;
-			while (i++ < ft_strlen(charset))
-				str++;
-		}
-		if (*str && !is_sep(str, charset))
+		while (*str && is_sep(*str, charset))
+			str++;
+		if (*str && !is_sep(*str, charset))
 		{
 			cnt++;
-			while (*str && !is_sep(str, charset))
+			while (*str && !is_sep(*str, charset))
 				str++;
 		}
 	}
@@ -66,20 +59,18 @@ int	count_words(char *str, char *charset)
 char	*malloc_word(char *str, char *charset)
 {
 	char	*word;
-	char	*tmp;
 	int		i;
 
-	tmp = str;
 	i = 0;
-	while (*tmp && !is_sep(str, charset))
-	{
+	while (str[i] && !is_sep(str[i], charset))
 		i++;
-		tmp++;
-	}
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	i = 0;
-	while (*str && !is_sep(str, charset))
-		word[i++] = *str++;
+	while (str[i] && !is_sep(str[i], charset))
+	{
+		word[i] = str[i];
+		i++;
+	}
 	word[i] = '\0';
 	return (word);
 }
@@ -88,22 +79,17 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**res;
 	int		i;
-	int		cnt;
 
 	i = 0;
 	res = (char **)malloc(sizeof(char *) * (count_words(str, charset) + 1));
 	while (*str)
 	{
-		while (*str && is_sep(str, charset))
-		{
-			cnt = 0;
-			while (cnt++ < ft_strlen(charset))
-				str++;
-		}
-		if (*str && !is_sep(str, charset))
+		while (*str && is_sep(*str, charset))
+			str++;
+		if (*str && !is_sep(*str, charset))
 		{
 			res[i++] = malloc_word(str, charset);
-			while (*str && !is_sep(str, charset))
+			while (*str && !is_sep(*str, charset))
 				str++;
 		}
 	}

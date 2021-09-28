@@ -6,15 +6,15 @@
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:56:42 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/27 17:57:05 by hykang           ###   ########.fr       */
+/*   Updated: 2021/09/28 17:02:16 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-long long	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	long long	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,9 +22,9 @@ long long	ft_strlen(char *str)
 	return (i);
 }
 
-long long	find(char *str, char c)
+int	find(char *str, char c)
 {
-	long long	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -36,12 +36,12 @@ long long	find(char *str, char c)
 	return (-1);
 }
 
-long long	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
-	long long	negative;
-	long long	i;
-	long long	result;
-	long long	index;
+	int	negative;
+	int	i;
+	int	result;
+	int	index;
 
 	negative = 1;
 	i = 0;
