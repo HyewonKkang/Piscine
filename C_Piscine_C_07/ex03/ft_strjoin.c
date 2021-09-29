@@ -5,16 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 17:30:01 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/28 17:50:24 by hykang           ###   ########.fr       */
+/*   Created: 2021/09/29 10:47:17 by hykang            #+#    #+#             */
+/*   Updated: 2021/09/29 10:47:59 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
-	int i;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (dest[i])
+		i++;
+	j = 0;
+	while (src[j])
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = 0;
+	return (dest);
+}
+
+unsigned int	ft_strlen(char *str)
+{
+	unsigned int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,50 +40,29 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*malloc_str(int size, char **strs, char *sep)
-{
-	int		i;
-	int		len;
-	char	*arr;
-
-	len = ft_strlen(sep) * (size - 1);
-	i = 0;
-	while (strs[i])
-	{
-		len += ft_strlen(strs[i]);
-		i++;
-	}
-	arr = (char *)malloc(sizeof(char) * (len + 1));
-	return (arr);
-}
-
-char	*ft_strcat(char *dst, char *src)
-{
-	while (*src)
-		*dst++ = *src++;
-	return (dst);
-}
-
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char	*res;
-	char	*tmp;
-	int		i;
+	char			*str;
+	int				i;
+	unsigned int	cnt;
 
-	if (!size)
+	cnt = ft_strlen(strs[0]);
+	i = 1;
+	while (i < size)
 	{
-		res = (char*)malloc(1);
-		res[0] = 0;
-		return (res);
+		cnt += ft_strlen(sep);
+		cnt += ft_strlen(strs[i]);
+		i++;
 	}
-	res = malloc_str(size, strs, sep);
-	tmp = ft_strcat(res, strs[0]);
+	str = (char *)malloc(sizeof(char) * (cnt + 1));
+	*str = '\0';
 	i = 0;
 	while (i < size)
 	{
-		tmp = ft_strcat(tmp, sep);
-		tmp = ft_strcat(tmp, strs[i++]);
+		str = ft_strcat(str, strs[i]);
+		if (i != size - 1)
+			str = ft_strcat(str, sep);
+		i++;
 	}
-	*tmp = 0;
-	return (res);
+	return (str);
 }

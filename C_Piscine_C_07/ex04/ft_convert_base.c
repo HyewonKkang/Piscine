@@ -6,7 +6,7 @@
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:30:52 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/28 17:08:09 by hykang           ###   ########.fr       */
+/*   Updated: 2021/09/29 09:07:18 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_base_correct(char *base)
 
 int	nbr_size(long long nbr, int base_len)
 {
-	int res_size;
+	int	res_size;
 
 	if (!nbr)
 		return (1);
@@ -68,14 +68,14 @@ char	*ft_putnbr_base(int nbr, char *base)
 
 	if (nbr == 0)
 	{
-		ret = (char*)malloc(2);
+		ret = (char *)malloc(2);
 		ret[0] = base[0];
 		ret[1] = 0;
 		return (ret);
 	}
 	tmp = nbr;
 	size = nbr_size(tmp, ft_strlen(base));
-	ret = (char*)malloc(sizeof(char) * (size + 1));
+	ret = (char *)malloc(sizeof(char) * (size + 1));
 	ret[size] = 0;
 	if (tmp < 0)
 		tmp *= -1;
@@ -91,8 +91,8 @@ char	*ft_putnbr_base(int nbr, char *base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	char		*res;
-	int	conv_n;
+	char	*res;
+	int		conv_n;
 
 	if (!is_base_correct(base_from) || !is_base_correct(base_to))
 		return (NULL);
