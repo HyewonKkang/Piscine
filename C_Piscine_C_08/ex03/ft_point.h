@@ -6,7 +6,7 @@
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 11:02:59 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/28 11:03:19 by hykang           ###   ########.fr       */
+/*   Updated: 2021/09/29 09:16:13 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct s_point
 {
-    int x;
-    int y;
-}   t_point;
+	int	x;
+	int	y;
+}				t_point;
 
 #endif

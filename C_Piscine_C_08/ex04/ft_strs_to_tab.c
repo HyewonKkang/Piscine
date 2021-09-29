@@ -6,7 +6,7 @@
 /*   By: hykang <hykang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 11:02:13 by hykang            #+#    #+#             */
-/*   Updated: 2021/09/28 11:02:48 by hykang           ###   ########.fr       */
+/*   Updated: 2021/09/29 09:17:06 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strdup(char *src)
 {
 	int		i;
 	int		len;
-	char		*copy;
+	char	*copy;
 
 	i = 0;
 	len = ft_strlen(src);
@@ -46,7 +46,7 @@ char	*ft_strdup(char *src)
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*res;
-	int		i;
+	int			i;
 
 	i = 0;
 	res = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
