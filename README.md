@@ -1,5 +1,5 @@
 ## 42Seoul La Piscine (2021/09/06 ~ 2021/10/01)
-| No |                                     Project                                     | Language | Status | PERCENTAGE |
+| No |                                     Project                                     | Language | Status | Percentage |
 |:--:|:-------------------------------------------------------------------------------:|:--------:|:------:|-----------:|
 | 01 | [Shell 00](https://github.com/HyewonKkang/Piscine/tree/main/C_Piscine_Shell_00) |   Shell  |    ✔️   |       100% |
 | 02 | [Shell 01](https://github.com/HyewonKkang/Piscine/tree/main/C_Piscine_Shell_01) |   Shell  |    ✔️   |       100% |
