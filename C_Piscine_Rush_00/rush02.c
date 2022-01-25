@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyepark <gyepark@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hykang <hykang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 19:05:06 by gyepark           #+#    #+#             */
-/*   Updated: 2021/09/11 19:05:25 by gyepark          ###   ########.fr       */
+/*   Created: 2022/01/25 17:20:19 by hykang            #+#    #+#             */
+/*   Updated: 2022/01/25 17:20:20 by hykang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <unistd.h>
 void	ft_putchar(char c);
