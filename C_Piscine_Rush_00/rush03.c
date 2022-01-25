@@ -1,32 +1,44 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush03.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gyepark <gyepark@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/11 19:06:07 by gyepark           #+#    #+#             */
+/*   Updated: 2021/09/11 19:06:09 by gyepark          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <unistd.h>
 void	ft_putchar(char c);
 
-void	rush(int a, int b)
+void	print_line(char start, char middle, char end, int column_count)
+{
+	ft_putchar(start);
+	while (--column_count > 1)
+		ft_putchar(middle);
+	if (column_count)
+		ft_putchar(end);
+}
+
+void	rush(int x, int y)
 {
 	int	i;
-	int	j;
 
-	i = 1;
-	while (i <= b)
+	if (x > 0 && y > 0)
 	{
-		j = 1;
-		while (j <= a)
+		i = 0;
+		while (i < y)
 		{
-			if (i == 1 || i == b || j == 1 || j == a)
-			{
-				if (j == 1 && (i == 1 || i == b))
-					ft_putchar('A');
-				else if (j == a && (i == 1 || i == b))
-					ft_putchar('C');
-				else
-					ft_putchar('B');
-			}
+			if (i == 0)
+				print_line('A', 'B', 'C', x);
+			else if (i == y - 1)
+				print_line('A', 'B', 'C', x);
 			else
-				ft_putchar(' ');
-			j += 1;
+				print_line('B', ' ', 'B', x);
+			i++;
+			write(1, "\n", 1);
 		}
-		write(1, "\n", 1);
-		i += 1;
 	}
 }
